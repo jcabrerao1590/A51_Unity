@@ -33,7 +33,7 @@ namespace MyHangManGame
 			Console.WriteLine("Vidas: " + vida);
 			Console.WriteLine("");
 			letter = Console.ReadLine();
-			int cont = 0;
+			bool exist = false;
 			for (int i = 0; i < secretWord.Length; i++)
 			{
 				if (tempWord[i] == null)
@@ -43,14 +43,10 @@ namespace MyHangManGame
 				if (letter == secretWord[i].ToString())
 				{
 					tempWord[i] = letter;
-					cont++;
-				}
-				else if(tempWord[i] == "_")
-				{
-					cont++;
+					exist = true;
 				}
 			}
-			if (cont != secretWord.Length) vida--;
+			if (!exist) vida--;
 			string resultado = String.Join("", tempWord);
 			Console.WriteLine(resultado);
 			if (vida == 0)
